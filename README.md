@@ -142,6 +142,10 @@ However, for when running the tests in Chrome, you can use the DevTools to do de
 - `--devtools` - when this is on, the Chrome DevTools will open automatically
 - `--debug` - this will cause the test execution to pause right after the component is rendered
 
+### Example:
+```sh
+npx nightwatch test/src/userInfoTest.js --devtools --debug
+```
 
 ## Run tests:
 
