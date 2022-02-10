@@ -1,7 +1,7 @@
 # nightwatch react plugin
 <p>
   <img alt="Nightwatch.js Logo" src=".github/assets/nightwatch-logo.svg" width=200 />
-  <img alt="React Logo" src=".github/assets/logo-react.png" width=200 />
+  <img alt="React Logo" src=".github/assets/react-logo.png" width=200 />
 </p>
 
 [![version][version-badge]][package]
