@@ -22,7 +22,7 @@
   "dependencies": {
     "@vitejs/plugin-react": "^1.2.0",
     "vite": "^2.8.0",
-    "vite-plugin-nightwatch": "^0.2.10"
+    "vite-plugin-nightwatch": "^0.2.12"
   },
   "peerDependencies": {
     "nightwatch": "^2.0.6",
