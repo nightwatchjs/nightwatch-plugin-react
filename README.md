@@ -1,10 +1,14 @@
 # nightwatch react plugin
-
-Official Nightwatch plugin which adds component testing support for React apps. It uses the [Vite](https://vitejs.dev/) dev server under the hood and [vite-plugin-nightwatch](https://github.com/nightwatchjs/vite-plugin-nightwatch). Requires Nightwatch 2.0+
+<p>
+  <img alt="Nightwatch.js Logo" src=".github/assets/nightwatch-logo.svg" width=200 />
+  <img alt="React Logo" src=".github/assets/logo-react.png" width=200 />
+</p>
 
 [![version][version-badge]][package]
 [![Discord][discord-badge]][discord]
 [![MIT License][license-badge]][license]
+
+Official Nightwatch plugin which adds component testing support for React apps. It uses the [Vite](https://vitejs.dev/) dev server under the hood and [vite-plugin-nightwatch](https://github.com/nightwatchjs/vite-plugin-nightwatch). Requires Nightwatch 2.0+
 
 ```
 npm install @nightwatch/react
