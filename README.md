@@ -156,9 +156,9 @@ npm test
 ## License
 MIT
 
-[build-badge]: https://github.com/nightwatchjs/nightwatch-plugin-react/actions/workflows/vue-tests.yml/badge.svg?branch=main
+[build-badge]: https://github.com/nightwatchjs/nightwatch-plugin-react/actions/workflows/node.js.yml/badge.svg?branch=main
 [build]: https://github.com/nightwatchjs/nightwatch-plugin-react/actions/workflows/node.js.yml
-[version-badge]: https://img.shields.io/npm/v/vite-plugin-nightwatch.svg?style=flat-square
+[version-badge]: https://img.shields.io/npm/v/@nightwatch/react.svg?style=flat-square
 [package]: https://www.npmjs.com/package/@nightwatch/react
 [license-badge]: https://img.shields.io/npm/l/@nightwatch/react.svg?style=flat-square
 [license]: https://github.com/nightwatchjs/nightwatch-plugin-react/blob/main/LICENSE
