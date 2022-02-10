@@ -23,7 +23,7 @@ module.exports = {
   test_settings: {
     default: {
       disable_error_log: false,
-      launch_url: '',
+      launch_url: 'http://localhost:3001',
       persist_globals: true,
       screenshots: {
         enabled: false,
