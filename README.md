@@ -4,6 +4,7 @@
   <img alt="React Logo" src=".github/assets/react-logo.png" width=200 />
 </p>
 
+[![Build Status][build-badge]][build]
 [![version][version-badge]][package]
 [![Discord][discord-badge]][discord]
 [![MIT License][license-badge]][license]
