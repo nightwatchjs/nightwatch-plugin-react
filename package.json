@@ -4,7 +4,9 @@
   "description": "Nightwatch plugin which adds support for React component testing using the Vite dev server. Requires Nightwatch 2.0+",
   "main": "index.js",
   "scripts": {
-    "test": "nightwatch"
+    "test": "npm run test:17; npm run test:18",
+    "test:17": "npm i -D react@17; nightwatch ./test/src",
+    "test:18": "npm i -D react@18; nightwatch ./test/src_18"
   },
   "publishConfig": {
     "access": "public"
@@ -31,8 +33,6 @@
   },
   "devDependencies": {
     "nightwatch": "latest",
-    "chromedriver": "^102.0.0",
-    "react": "^17 || ^18",
-    "react-dom": "^17 || ^18"
+    "chromedriver": "^102.0.0"
   }
 }
