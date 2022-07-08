@@ -17,7 +17,9 @@ const hasProjectConfigFile = () => {
 module.exports = {
   async before() {
     viteServer = await setup({
-      viteConfigFile: hasProjectConfigFile() ? projectConfigFile : viteConfigFile
+      // TODO: make vite config file an option to nightwatch plugin
+      // viteConfigFile: hasProjectConfigFile() ? projectConfigFile : viteConfigFile
+      viteConfigFile
     });
 
     // This will make sure the launch Url is set correctly when mounting the React component
