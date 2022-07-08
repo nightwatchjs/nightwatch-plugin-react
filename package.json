@@ -25,11 +25,6 @@
     "vite": "^2.9.14",
     "vite-plugin-nightwatch": "^0.3.0-dev"
   },
-  "peerDependencies": {
-    "nightwatch": "^2.2.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "devDependencies": {
     "chromedriver": "^103.0.0",
     "nightwatch": "latest",
