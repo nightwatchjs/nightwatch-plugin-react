@@ -1,2 +1,2 @@
-// Workaround until plugins can included other plugins
+// Workaround until plugins can include other plugins
 module.exports = require('vite-plugin-nightwatch/nightwatch/commands/importScript.js');

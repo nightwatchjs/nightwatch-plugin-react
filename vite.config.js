@@ -1,11 +1,9 @@
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import nightwatchPlugin from 'vite-plugin-nightwatch'
 
-// https://vitejs.dev/config/
-export default defineConfig({
+export default {
   optimizeDeps: {
-    include: ['react', 'react-dom']
+    include: ['react', 'react-dom/client']
   },
   plugins: [
     react(),
@@ -13,4 +11,4 @@ export default defineConfig({
       componentType: 'react'
     })
   ]
-})
+};
