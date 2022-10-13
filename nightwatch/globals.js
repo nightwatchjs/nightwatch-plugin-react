@@ -1,5 +1,6 @@
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
+
 const setup = require('../lib/setup.js');
 
 let viteServer;
@@ -15,18 +16,20 @@ const hasProjectConfigFile = () => {
 }
 
 module.exports = {
-  async before() {
+  async before(settings) {
     viteServer = await setup({
-      // TODO: make vite config file an option to nightwatch plugin
-      // viteConfigFile: hasProjectConfigFile() ? projectConfigFile : viteConfigFile
-      viteConfigFile
+      viteConfigFile: hasProjectConfigFile() ? projectConfigFile : viteConfigFile
     });
 
     // This will make sure the launch Url is set correctly when mounting the React component
-    this.launchUrl = this.baseUrl = `http://localhost:${viteServer.config.server.port}`;
+    const vite_port = viteServer.config.server.port;
+    settings.vite_port = vite_port;
+    this.launchUrl = this.baseUrl = `http://localhost:${vite_port}`;
   },
 
   async after() {
-    await viteServer.close();
+    if (viteServer) {
+      await viteServer.close();
+    }
   }
 }
