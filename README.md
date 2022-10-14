@@ -1,6 +1,6 @@
 # nightwatch-react-plugin
 <p align=center>
-  <img alt="Nightwatch.js Logo" src="https://raw.githubusercontent.com/nightwatchjs/nightwatch-plugin-react/main/.github/assets/nightwatch-logo.svg" width=200 />
+  <img alt="Nightwatch.js Logo" src="https://raw.githubusercontent.com/nightwatchjs/nightwatch-plugin-react/main/.github/assets/nightwatch-logo.png" width=200 />
   <img alt="React Logo" src="https://raw.githubusercontent.com/nightwatchjs/nightwatch-plugin-react/main/.github/assets/react-logo.png" width=200 />
 </p>
 
