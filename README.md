@@ -17,7 +17,6 @@ npm install @nightwatch/react
 
 ## Usage:
 
-### Configuration
 Update your [Nightwatch configuration](https://nightwatchjs.org/guide/configuration/overview.html) and add the plugin to the list:
 
 ```js
@@ -28,50 +27,65 @@ module.exports = {
 }
 ```
 
-### Update your Nightwatch globals file
+### Already using Vite in your project?
 
-If you're not already using external globals with Nightwatch, go ahead and create a new file (e.g. `test/globals.js`) and then set the path in your Nightwatch config file:
+If you already have a Vite project, then the `@nightwatch/react` plugin will try to use the existing `vite.config.js` or `vite.config.ts`, if either one is found. 
+
+Check the [vite-plugin-nightwatch](https://github.com/nightwatchjs/vite-plugin-nightwatch) project for more configuration options.
+
+Update the `vite.config.js` and add the `vite-plugin-nightwatch` plugin:
 
 ```js
-module.exports = {
-  plugins: ['@nightwatch/react'],
-  
-  globals_path: 'test/globals.js'
-  // other nightwatch settings...
-}
+// vite.config.js
+
+import nightwatchPlugin from 'vite-plugin-nightwatch'
+
+export default {
+  plugins: [
+	// ... other plugins, such as vue() or react()
+	nightwatchPlugin()
+  ]
+})
 ```
 
-Read more about [external globals](https://nightwatchjs.org/guide/using-nightwatch/external-globals.html) on the Nightwatch docs website.
+### Configuration
+We’ve designed the `@nightwatch/react` plugin to work with sensible configuration defaults, but in some more advanced scenarios you may need to change some of the config options.
 
-**`test/globals.js`:**
-```js
-const {setup} = require('@nightwatch/react');
+#### Vite dev server
+By default, Nightwatch will attempt to start the Vite dev server automatically. You can disable that by adding the below in your `nightwatch.conf.js` file, under the `vite_dev_server` dictionary.
 
-let viteServer;
+This is common to other component testing plugins that are based on Vite, such as the `@nightwatch/vue` plugin.
+
+```
+// nightwatch.conf.js
+
 module.exports = {
-  async before() {
-    viteServer = await setup({
-      // you can optionally pass an existing vite.config.js file
-      // viteConfigFile: '../vite.config.js'
-    });
-    
-    // This will make sure the launch Url is set correctly when mounting the React component
-    this.launchUrl = `http://localhost:${viteServer.config.server.port}`;
-  },
-
-  async after() {
-    await viteServer.close();
+  plugins: ['@nightwatch/react'],
+  vite_dev_server: {
+    start_vite: true,
+    port: 5173
   }
 }
 ```
 
-## Already using Vite in your project?
+#### Plugin options
+The plugin accepts a few config options which can be set when working with an existing `vite.config.js` file in the project.
 
-If your project is already based on Vite and you'd like to use the same config file, you can either:
-- pass the `viteConfigFile` property to the `setup()` method in the `before()` hook above
-- run your Vite dev server separately by doing `npm run dev`
+##### - `renderPage`
+Specify the path to a custom test renderer to be used. A default renderer is included in the package, but this option can overwrite that value.
 
-Check the [vite-plugin-nightwatch](https://github.com/nightwatchjs/vite-plugin-nightwatch) project for more configuration options.
+```js
+// vite.config.js
+
+export default {
+  plugins: [
+    // ... other plugins, such as vue() or react()
+    nightwatchPlugin({
+      renderPage: './src/test_renderer.html'
+    })
+  ]
+}
+```
 
 ## API Commands:
 This plugin includes a few Nightwatch commands which can be used while writing React component tests.
@@ -137,7 +151,7 @@ const element = React.createElement(Component, {});
 ReactDOM.render(element, document.getElementById('app'));
 
 // This will be used by Nightwatch to inspect properties of this component
-window['@component_element'] = element;
+window['@@component_element'] = element;
 ```
 
 ## Debugging Component Tests
@@ -154,12 +168,15 @@ npx nightwatch test/src/userInfoTest.js --devtools --debug
 
 ## Run tests:
 
-Tests for this project are written in Nightwatch so you can inspect them as examples, located in the [tests/src] folder.
+Tests for this project are written in Nightwatch so you can inspect them as examples, located in the [test/src] folder.
 
 Run them with::
 ```sh
 npm test 
 ```
+
+### Example project
+We've put together a basic To-do app written in React and built on top of Vite which can be used as a boilerplate. It can be found at [nightwatchjs-community/todo-react](https://github.com/nightwatchjs-community/todo-react).
 
 
 ## License
