@@ -14,7 +14,7 @@ module.exports = {
 
   
   // See https://nightwatchjs.org/guide/#external-globals
-  globals_path : 'test/globals.js',
+  globals_path: 'test/globals.js',
 
   webdriver: {},
 

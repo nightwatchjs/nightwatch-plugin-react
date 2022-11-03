@@ -1,8 +1,7 @@
-//const jsdom = require('jsdom');
-const path = require('path');
+const jsdom = require('jsdom');
 const {run} = require('@nightwatch/esbuild-utils');
 
-const normalizeExportName = (name) => name.replace(/ /g, '');
+const jsdomObject = new jsdom.JSDOM('');
 
 module.exports = [{
   name(exportName) {
@@ -31,7 +30,7 @@ module.exports = [{
       }
 
       throw new Error('An error occurred while rendering the component ' + ' <' + (exportName || '')+ '> from ' + publicUrl);
-    }
+    };
   },
 
   onlyConditionFn({exportName}, argv = {}) {
@@ -42,12 +41,11 @@ module.exports = [{
     return exportName.toLowerCase() === argv.story.toLowerCase();
   },
 
-  data(exportName) {
-    return {};
-  },
-
   requireTest(modulePath, options, {argv, nightwatch_settings}) {
-    //global.window = (new jsdom.JSDOM('')).window;
+    global.window = jsdomObject.window;
+    global.document = jsdomObject.window.document;
+    global.navigator = jsdomObject.window.navigator;
+    global.HTMLElement = jsdomObject.window.HTMLElement;
 
     return run(modulePath, options, {argv, nightwatch_settings});
   }

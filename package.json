@@ -4,6 +4,7 @@
   "description": "Nightwatch plugin which adds support for React component testing using the Vite dev server. Requires Nightwatch 2.0+",
   "main": "index.js",
   "scripts": {
+    "eslint": "eslint index.js nightwatch.conf.js nightwatch lib",
     "test": "nightwatch"
   },
   "publishConfig": {
@@ -21,16 +22,19 @@
   "homepage": "https://nightwatchjs.org",
   "license": "MIT",
   "dependencies": {
-    "@nightwatch/esbuild-utils": "0.1.8",
+    "@nightwatch/esbuild-utils": "0.1.10",
     "@vitejs/plugin-react": "^2.1.0",
     "assertion-error": "^2.0.0",
     "get-port": "^5.1.1",
+    "jsdom": "^20.0.2",
+    "rimraf": "^3.0.2",
     "vite": "^3.1.3",
-    "vite-plugin-nightwatch": "0.3.1"
+    "vite-plugin-nightwatch": "0.3.2"
   },
   "devDependencies": {
-    "chromedriver": "^106.0.1",
-    "nightwatch": "^2.4.0-preview.2",
+    "chromedriver": "^107.0.3",
+    "eslint": "^8.26.0",
+    "nightwatch": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
