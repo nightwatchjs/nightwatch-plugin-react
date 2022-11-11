@@ -22,7 +22,7 @@ const startViteServer = async function (settings = {}) {
     try {
       const enabled = await makeViteRequest(vite_port);
 
-      if (enabled) {
+      if (!enabled) {
         const error = new Error('Missing vite-plugin-nightwatch');
         const code = `:
 
