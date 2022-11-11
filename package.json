@@ -34,7 +34,7 @@
   "devDependencies": {
     "chromedriver": "^107.0.3",
     "eslint": "^8.26.0",
-    "nightwatch": "^2.4.0",
+    "nightwatch": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
