@@ -9,7 +9,7 @@
 [![Discord][discord-badge]][discord]
 [![MIT License][license-badge]][license]
 
-Official Nightwatch plugin which adds component testing support for React apps. It uses the [Vite](https://vitejs.dev/) dev server under the hood and [vite-plugin-nightwatch](https://github.com/nightwatchjs/vite-plugin-nightwatch). Requires Nightwatch 2.3+
+Official Nightwatch plugin which adds component testing support for React apps. It uses the [Vite](https://vitejs.dev/) dev server under the hood and [vite-plugin-nightwatch](https://github.com/nightwatchjs/vite-plugin-nightwatch). Requires Nightwatch 2.4+
 
 ```
 npm install @nightwatch/react
@@ -157,9 +157,8 @@ window['@@component_element'] = element;
 ## Debugging Component Tests
 Debugging component tests in Nightwatch isn't as straightforward as debugging a regular Node.js application or service, since Nightwatch needs to inject the code to render to component into the browser.
 
-However, for when running the tests in Chrome, you can use the DevTools to do debugging directly in the browser. For this purpose, Nightwatch provide 2 CLI flags:
-- `--devtools` - when this is on, the Chrome DevTools will open automatically
-- `--debug` - this will cause the test execution to pause right after the component is rendered
+However, since Nightwatch v2.4 we provide several ways to inspect and debug the mounted component using the browser devtools console. Refer to the guide page on our docs website for more details:
+https://nightwatchjs.org/guide/component-testing/debugging.html
 
 ### Example:
 ```sh
