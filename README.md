@@ -42,8 +42,8 @@ import nightwatchPlugin from 'vite-plugin-nightwatch'
 
 export default {
   plugins: [
-	// ... other plugins, such as vue() or react()
-	nightwatchPlugin()
+    // ... other plugins, such as vue() or react()
+    nightwatchPlugin()
   ]
 })
 ```
@@ -56,7 +56,7 @@ By default, Nightwatch will attempt to start the Vite dev server automatically. 
 
 This is common to other component testing plugins that are based on Vite, such as the `@nightwatch/vue` plugin.
 
-```
+```js
 // nightwatch.conf.js
 
 module.exports = {
