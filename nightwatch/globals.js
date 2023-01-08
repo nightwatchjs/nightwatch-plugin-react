@@ -51,7 +51,6 @@ const startViteServer = async function (settings = {}) {
           start_vite: true,
           port: 5173 
         }
-      )
     `];
       error.link = 'https://nightwatchjs.org/guide/component-testing/testing-react-components.html';
 
