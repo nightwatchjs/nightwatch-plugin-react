@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "eslint": "eslint index.js nightwatch.conf.js nightwatch lib",
-    "test": "nightwatch"
+    "test": "nightwatch --headless"
   },
   "publishConfig": {
     "access": "public"
