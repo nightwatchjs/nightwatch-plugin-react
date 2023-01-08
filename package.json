@@ -1,6 +1,6 @@
 {
   "name": "@nightwatch/react",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Nightwatch plugin which adds support for React component testing using the Vite dev server. Requires Nightwatch 2.0+",
   "main": "index.js",
   "scripts": {
