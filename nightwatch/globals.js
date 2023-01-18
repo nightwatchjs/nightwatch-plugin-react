@@ -69,10 +69,8 @@ const stopViteServer = async () => {
 };
 
 module.exports = {
-  async beforeEach(settings) {
-    if (isWorker) {
-      await startViteServer.call(this, settings);
-    }
+  async beforeChildProcess(settings) {
+    await startViteServer.call(this, settings);
   },
 
   async before(settings) {
@@ -87,10 +85,8 @@ module.exports = {
     return new Promise(resolve => require('rimraf')('nightwatch/.cache', resolve));
   },
 
-  async afterEach() {
-    if (isWorker) {
-      await stopViteServer();
-    }
+  async afterChildProcess() {
+    await stopViteServer();
   }
 };
 
