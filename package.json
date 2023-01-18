@@ -32,13 +32,15 @@
     "get-port": "^5.1.1",
     "jsdom": "^20.0.2",
     "rimraf": "^3.0.2",
-    "vite-plugin-nightwatch": "0.4.0"
+    "vite-plugin-nightwatch": "0.4.2"
   },
   "devDependencies": {
-    "chromedriver": "^108.0.0",
+    "chromedriver": "^109.0.0",
     "eslint": "^8.26.0",
     "nightwatch": "^2.6.10",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "vite": "^4.0.4",
+    "@vitejs/plugin-react": "^3.0.1"
   }
 }
