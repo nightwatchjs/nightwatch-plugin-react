@@ -2,9 +2,21 @@ import { NightwatchAPI, Element } from 'nightwatch';
 
 declare module 'nightwatch' {
   interface NightwatchAPI {
-    importScript(scriptPath: string, options: { scriptType: string; componentTyp: string }, callback: () => void): this;
-    mountReactComponent(componentPath: string, props?: string | (() => void), callback?: () => void): Element;
-    mountComponent(componentPath: string, props?: string | (() => void), callback?: () => void): Element;
+    importScript(
+      scriptPath: string,
+      options: { scriptType: string; componentType: string },
+      callback?: () => void
+    ): this;
+    mountReactComponent<TProps extends Record<string, any>>(
+      componentPath: string,
+      props?: TProps,
+      callback?: () => void
+    ): Element;
+    mountComponent<TProps extends Record<string, any>>(
+      componentPath: string,
+      props?: TProps,
+      callback?: () => void
+    ): Element;
     launchComponentRenderer(): this;
   }
 }
