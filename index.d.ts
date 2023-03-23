@@ -10,13 +10,13 @@ declare module 'nightwatch' {
     mountReactComponent<TProps extends Record<string, any>>(
       componentPath: string,
       props?: TProps,
-      callback?: () => void
-    ): Element;
+      callback?: (this: NightwatchAPI, result: Element) => void
+    ): Awaitable<this, Element>;
     mountComponent<TProps extends Record<string, any>>(
       componentPath: string,
       props?: TProps,
-      callback?: () => void
-    ): Element;
+      callback?: (this: NightwatchAPI, result: Element) => void
+    ): Awaitable<this, Element>;
     launchComponentRenderer(): this;
   }
 }
