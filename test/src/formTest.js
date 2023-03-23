@@ -7,5 +7,5 @@ xdescribe('form test', function() {
 
   it('should render functional components without error', async function() {
     await browser.expect(component).to.be.visible;
-  })
-})
+  });
+});
