@@ -12,7 +12,7 @@ module.exports = {
   // See https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-assertions
   custom_assertions_path: '',
 
-  
+
   // See https://nightwatchjs.org/guide/#external-globals
   globals_path: 'test/globals.js',
 
@@ -39,7 +39,7 @@ module.exports = {
 
       webdriver: {
         start_process: true,
-        server_path: require('chromedriver').path,
+        server_path: '',
         cli_args: [
           // --verbose
         ]
