@@ -1,5 +1,4 @@
 const setup = require('../lib/setup.js');
-const http = require('http');
 
 let viteServer;
 
@@ -18,9 +17,11 @@ const startViteServer = async function (settings = {}) {
     settings.vite_dev_server.port = vite_port = viteServer.config.server.port;
   } else {
     vite_port = settings.vite_dev_server.port;
+    const https = settings.vite_dev_server.https;
+    const protocol = https ? 'https' : 'http';
 
     try {
-      const enabled = await makeViteRequest(vite_port);
+      const enabled = await makeViteRequest({vite_port, protocol});
 
       if (!enabled) {
         const error = new Error('Missing vite-plugin-nightwatch');
@@ -46,10 +47,10 @@ const startViteServer = async function (settings = {}) {
       return true;
     } catch (err) {
       const error = new Error('Vite dev server is not running: \n   ' + err.message);
-      error.help = [`You can configure Nightwatch to start Vite automatically by adding this to your nightwatch.conf.js: 
+      error.help = [`You can configure Nightwatch to start Vite automatically by adding this to your nightwatch.conf.js:
         vite_dev_server: {
           start_vite: true,
-          port: 5173 
+          port: 5173
         }
     `];
       error.link = 'https://nightwatchjs.org/guide/component-testing/testing-react-components.html';
@@ -90,15 +91,16 @@ module.exports = {
   }
 };
 
-function makeViteRequest(port) {
+function makeViteRequest({vite_port, protocol}) {
   const options = {
     host: 'localhost',
-    port,
+    port: vite_port,
     path: '/_nightwatch'
   };
 
   return new Promise((resolve, reject) => {
-    const req = http.request(options, function(response) {
+    const {request} = protocol === 'https' ? require('https') : require('http');
+    const req = request(options, function(response) {
       if (response.statusCode === 404) {
         return resolve(false);
       }
@@ -107,6 +109,10 @@ function makeViteRequest(port) {
     });
 
     req.on('error', err => {
+      if (err.code === 'DEPTH_ZERO_SELF_SIGNED_CERT') {
+        return resolve(true);
+      }
+
       reject(err);
     });
 
