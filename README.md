@@ -45,7 +45,7 @@ export default {
     // ... other plugins, such as vue() or react()
     nightwatchPlugin()
   ]
-})
+}
 ```
 
 ### Configuration
