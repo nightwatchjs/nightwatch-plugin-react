@@ -3,7 +3,7 @@ const setup = require('../lib/setup.js');
 let viteServer;
 
 const isWorker = process.argv.includes('--test-worker');
-const startViteServer = async function (settings = {}) {
+const startViteServer = async function (settings = {}, launchUrl2='') {
   settings.vite_dev_server = Object.assign({
     start_vite: true,
     port: 5173
@@ -59,7 +59,7 @@ const startViteServer = async function (settings = {}) {
     }
   }
 
-  this.launchUrl = this.baseUrl = `http://localhost:${vite_port}`;
+  this.launchUrl = this.baseUrl = launchUrl2 ||`http://localhost:${vite_port}`;
 };
 
 const stopViteServer = async () => {
