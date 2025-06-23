@@ -1,4 +1,4 @@
-xdescribe('form test', function() {
+describe('form test', function() {
   let component;
 
   before(async () => {
