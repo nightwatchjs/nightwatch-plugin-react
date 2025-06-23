@@ -22,9 +22,9 @@
   "homepage": "https://nightwatchjs.org",
   "license": "MIT",
   "peerDependencies": {
-    "@vitejs/plugin-react": "^4.0.4",
+    "@vitejs/plugin-react": "^4.6.0",
     "nightwatch": "^3.1.0",
-    "vite": "^4.0.4"
+    "vite": "^6.3.5"
   },
   "dependencies": {
     "@nightwatch/esbuild-utils": "^0.2.1",
@@ -35,11 +35,11 @@
     "vite-plugin-nightwatch": "^0.4.6"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.4",
+    "@vitejs/plugin-react": "^4.6.0",
     "eslint": "^8.26.0",
     "nightwatch": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "vite": "^4.0.4"
+    "vite": "^6.3.5"
   }
 }
